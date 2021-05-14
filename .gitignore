@@ -9,8 +9,6 @@ node_modules
 # Backup files # 
 *.bak 
 
-frontend/static/frontend/*
-
 # If you are using PyCharm # 
 .idea/**/workspace.xml 
 .idea/**/tasks.xml 
