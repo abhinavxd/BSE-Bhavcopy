@@ -54,7 +54,7 @@ const Homepage = () => {
 
     const handleInputChange = async (e) => {
         const searchTerm = e.target.value;
-        const result = await axios.post('api/autocomplete',{
+        const result = await axios.post('api/search-prefix',{
             search_term: searchTerm
         });
         setSearchedData(result.data)
