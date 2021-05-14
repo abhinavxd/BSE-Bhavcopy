@@ -36,7 +36,6 @@
     "react-awesome-button": "^6.5.1",
     "react-csv": "^2.0.3",
     "react-data-table-component": "^6.11.7",
-    "styled-components": "^5.3.0",
-    "sweetalert": "^2.1.2"
+    "styled-components": "^5.3.0"
   }
 }
