@@ -1,0 +1,52 @@
+body {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('https://coolbackgrounds.io/images/backgrounds/white/white-trianglify-b79c7e1f.jpg');
+    background-size: cover;
+}
+
+label {
+    margin: 5px;
+}
+
+button {
+    margin:0 10px !important;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: .6em;
+    font-size: 30px;
+}
+
+.data-table {
+    width: 75vw;
+    overflow-y: scroll;
+    height:max-content;
+    max-height: 60vh;
+}
+
+.fa-download {
+    margin:20px;
+}
+
+#search-form {
+    display: flex;
+    flex-direction: row;
+}
+
+#search-input {
+    font-size:25px;
+}
+
+#pro-tip {
+    font-size: 20px;
+    color: grey;
+    margin-bottom: 5px;
+}
