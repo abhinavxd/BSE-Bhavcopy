@@ -27,6 +27,7 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "@material-ui/lab": "^4.0.0-alpha.58",
     "axios": "^0.21.1",
     "dotenv": "^9.0.2",
     "font-awesome": "^4.7.0",
