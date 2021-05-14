@@ -7,7 +7,6 @@ import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 import { CSVLink } from "react-csv";
 import DataTable from 'react-data-table-component';
-import 'react-toastify/dist/ReactToastify.css';
 
 const Homepage = () => {
     const [searchTerm, setSearchTerm] = useState('');
