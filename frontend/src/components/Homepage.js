@@ -96,7 +96,6 @@ const Homepage = () => {
                 <div>
                     {csvData && <CSVLink filename={`bhavcopy_equity_${currentStockName}.csv`} data={csvData}><i className="fa fa-download" aria-hidden="true"></i>Download CSV</CSVLink>}
                 </div>
-                {csvData && <span id="pro-tip">PRO TIP: Click on date column to sort in ascending descending order</span>}
                 {csvData &&
                     <div className='data-table'>
                         <DataTable
