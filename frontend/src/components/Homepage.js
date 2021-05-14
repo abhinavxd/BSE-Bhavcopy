@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { render } from "react-dom";
 import axios from "axios";
 import swal from 'sweetalert';
@@ -8,7 +8,6 @@ import "react-awesome-button/dist/styles.css";
 import { CSVLink } from "react-csv";
 import DataTable from 'react-data-table-component';
 import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer, toast } from 'react-toastify';
 
 const Homepage = () => {
     const [searchTerm, setSearchTerm] = useState('');
