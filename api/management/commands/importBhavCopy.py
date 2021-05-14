@@ -33,8 +33,11 @@ class Command(BaseCommand):
         # Set user-agent to prevent 403 error
         req = urllib.request.Request(
             url, headers={'User-Agent': "Magic Browser"})
-        con = urllib.request.urlopen(req)
-        return ZipFile(BytesIO(con.read()))
+        try:
+            con = urllib.request.urlopen(req)
+            return ZipFile(BytesIO(con.read()))
+        except Exception as e:
+            logger.error(e)
 
     def import_data_from_csv(self, zipfile, full_todays_date):
         """
@@ -79,4 +82,5 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         todays_date = options['todays_date']
         zipfile = self.download_bhavcopy_zip(todays_date)
-        self.import_data_from_csv(zipfile, todays_date)
+        if zipfile is not None:
+            self.import_data_from_csv(zipfile, todays_date)
