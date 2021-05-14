@@ -9,15 +9,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.enviro("SECRET_KEY")
+SECRET_KEY = os.getenv("SECRET_KEY", "notsosecret")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.enviro("DEBUG")
+DEBUG = os.getenv("DEBUG", 'True')
 
-ALLOWED_HOSTS = ['localhost:5000', 'bse-equity-bhavcopy.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'bse-equity-bhavcopy.herokuapp.com']
 
-REDIS_HOST =  os.enviro('REDIS_HOST')
-REDIS_PORT = os.enviro('REDIS_PORT')
+REDIS_HOST =  os.getenv('REDIS_HOST', '127.0.0.1')
+REDIS_PORT = os.getenv('REDIS_PORT', '6379')
 
 # Application definition
 
