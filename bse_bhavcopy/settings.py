@@ -14,7 +14,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", "notsosecret")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", 'True')
 
-ALLOWED_HOSTS = ['localhost', 'bse-equity-bhavcopy.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '35.154.187.93', 'bse-equity-bhavcopy.herokuapp.com']
 
 REDIS_HOST =  os.getenv('REDIS_HOST', '127.0.0.1')
 REDIS_PORT = os.getenv('REDIS_PORT', '6379')
