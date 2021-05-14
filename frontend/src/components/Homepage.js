@@ -1,103 +1,102 @@
 import React, { useState } from "react";
 import { render } from "react-dom";
 import axios from "axios";
-import swal from 'sweetalert';
 import "../css/homepage.css";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 import { CSVLink } from "react-csv";
 import DataTable from 'react-data-table-component';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import TextField from '@material-ui/core/TextField';
+
 
 const Homepage = () => {
-    const [searchTerm, setSearchTerm] = useState('');
+    const [searchedData, setSearchedData] = useState([]);
     const [csvData, setCsvData] = useState(undefined);
-    const [error, setError] = useState(false);
+    const [currentStockName, setCurrentStockName] = useState("default");
     const columns = [
+        {
+            name: 'DATE',
+            selector: 'DATE',
+            sortable: true,
+        },
         {
             name: 'SC_NAME',
             selector: 'SC_NAME',
-            sortable: true,
+            sortable: false
         },
         {
             name: 'SC_CODE',
             selector: 'SC_CODE',
-            sortable: true,
-            right: true,
+            sortable: false
         },
         {
             name: 'OPEN',
             selector: 'OPEN',
-            sortable: true,
-            right: true,
+            sortable: false
         },
         {
             name: 'HIGH',
             selector: 'HIGH',
-            sortable: true,
-            right: true,
+            sortable: false
         },
         {
             name: 'LOW',
             selector: 'LOW',
-            sortable: true,
-            right: true,
+            sortable: false
         },
         {
             name: 'CLOSE',
             selector: 'CLOSE',
-            sortable: true,
-            right: true,
+            sortable: false,
         },
     ];
 
-    const handleInputChange = (e) => {
-        setSearchTerm(e.target.value);
+    const handleInputChange = async (e) => {
+        const searchTerm = e.target.value;
+        const result = await axios.post('api/autocomplete',{
+            search_term: searchTerm
+        });
+        setSearchedData(result.data)
     };
 
-    const clearTable = () => {
-        setCsvData(undefined);
-    }
-
-    const handleSearch = async (e) => {
+    const handleSearch = async (e, value=undefined) => {
         e.preventDefault();
-        if (searchTerm.length == 0) {
-            return;
-        }
-        setError(false);
         try {
             const result = await axios.post("api/get-data-by-name", {
-                sc_name: searchTerm
+                sc_name: value.title
             });
             if (result.status === 200) {
-                setCsvData(result.data)
+                setCsvData(result.data.data)
+                setCurrentStockName(result.data.name)
             }
         } catch (err) {
-            setError(true);
             setCsvData(undefined);
-            swal({
-                icon: "error",
-                title: "Name not found"
-            });
         }
     };
 
     return (
         <>
             <div className="container">
-                <h1>
+                <h2>
                     Welcome to <img src="https://www.bseindia.com/include/images/bselogo.png" /> Bhavcopy (Equity) downloader
-                </h1>
+                </h2>
                 <div>
-                    <form onSubmit={handleSearch} id='search-form'>
-                        <label>Search by name (case insensitive)</label>
-                        <input type="text" onChange={handleInputChange} id='search-input' />
-                        <AwesomeButton type="primary">Search</AwesomeButton>
+                    <form id='search-form'>
+                        <Autocomplete
+                        id="search-input"
+                        onChange={(event, value) => handleSearch(event, value)} 
+                        options={searchedData}
+                        getOptionLabel={(option) => option.title}
+                        style={{ width: 400 }}
+                        renderInput={(params) => <TextField {...params} label="Search by name" variant="outlined" onChange={handleInputChange} />}
+                        />
                     </form>
                 </div>
                 <div>
-                    {csvData && <CSVLink data={csvData}><i className="fa fa-download" aria-hidden="true"></i>Download CSV</CSVLink>}
+                    {csvData && <CSVLink filename={`bhavcopy_equity_${currentStockName}.csv`} data={csvData}><i className="fa fa-download" aria-hidden="true"></i>Download CSV</CSVLink>}
                 </div>
-                {csvData && <span id="pro-tip">PRO TIP: Click on column names to sort data in ascending order or descending order</span>}
+                {csvData && <span id="pro-tip">PRO TIP: Click on date column to sort in ascending descending order</span>}
                 {csvData &&
                     <div className='data-table'>
                         <DataTable
