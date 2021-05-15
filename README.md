@@ -64,6 +64,11 @@ This application runs a Django command daily at 18:00 IST and automatically down
        
        cd jobs/
        sudo nohup ./download_bhavcopy.sh &
+       
+       Press CTRL + C to close 
+       
+       Check if it's running in background:
+       ps -fe | grep -i bhavcopy
  
  ### Production server deployment steps
 
