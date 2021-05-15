@@ -15,23 +15,37 @@
 * Clone the repository    
 
       git clone https://github.com/abhinavxd/BSE-Bhavcopy.git
+      cd BSE-Bhavcopy
 
 * Create python3 virtual environtment inside the repository root
-
-      pipenv install
+      
       sudo apt-get install python3-venv
       python3 -m venv venv
+      
       **MAKE SURE YOUR environment name is 'venv'**   
     
 * Install node from https://nodejs.org/en/ and build frontend 
 
       cd frontend
       npm install
+      
+      For production:
       npm run build
+      
+      For dev:
+      npm run dev
       
 * Activate the virtual environment and install the requirements
      
       source venv/bin/activate
       pip install -r requirements.txt
+      
+* Apply migrations
+      
+      python manage.py migrate
+
+ * Run development server
+ 
+       python manage.py runserver
     
  
