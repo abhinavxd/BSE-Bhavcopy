@@ -6,6 +6,11 @@ This application runs a Django command daily at 18:00 IST and automatically down
 
 Plus you can download the results as CSV. 
 
+* API Endpoints
+	
+      https://bsebhavcopy.abhinavr.me/api/search-prefix
+
+      https://bsebhavcopy.abhinavr.me/api/get-data-by-name
 
 * Update list of packages from all repositories
 
