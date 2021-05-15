@@ -11,6 +11,8 @@
       sudo apt-get install python3-dev python-pip
       
 * Install redis for your linux distribution: https://redis.io/topics/quickstart
+    
+      sudo apt-get install redis
 
 * Clone the repository    
 
