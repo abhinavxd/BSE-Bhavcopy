@@ -2,11 +2,11 @@
 ### This application downloads bhavcopy from BSE website and makes it searchable 
 ### BSE publishes a "Bhavcopy" (Equity) ZIP every day at 18:00 IST here: https://www.bseindia.com/markets/MarketInfo/BhavCopy.aspx
 
-* Update the system     
+* Update list of packages from all repositories
 
       sudo apt-get update
       
-* Install base dependencies
+* Install python3 and pip dependencies
 
       sudo apt-get install python3-dev python-pip
       
@@ -49,6 +49,8 @@
  * Run development server
  
        python manage.py runserver
+ 
+ ### Production server deployment steps
 
  * Production deployment steps with NGINX
       
