@@ -36,7 +36,7 @@ Plus you can download the results as CSV.
       sudo apt-get install python3-venv
       python3 -m venv venv
       
-      **MAKE SURE YOUR environment name is 'venv'**   
+      MAKE SURE YOUR environment name is 'venv' 
     
 * Install node from https://nodejs.org/en/ and build frontend 
 
