@@ -79,7 +79,7 @@ const Homepage = () => {
         <>
             <div className="container">
                 <h2>
-                    Welcome to <img src="https://www.bseindia.com/include/images/bselogo.png" /> Bhavcopy (Equity) downloader
+                    Welcome to <img src="https://www.bseindia.com/include/images/bselogo.png" /> (Equity) Bhavcopy Search
                 </h2>
                 <div>
                     <form id='search-form'>
