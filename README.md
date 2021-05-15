@@ -69,14 +69,14 @@ Plus you can download the results as CSV.
  
        python manage.py runserver
        
- * Steps to run daily import Django command from bash file in background
+### Steps to run daily import Django command from bash file in background
        
        cd jobs/
        sudo nohup ./download_bhavcopy.sh &
        
-       Press CTRL + C to close 
+       Press CTRL + C to close (now the bash file is running in background)
        
-       Check if it's running in background:
+       To check if it's running run the following:
        ps -fe | grep -i bhavcopy
  
  ### Production server deployment steps
