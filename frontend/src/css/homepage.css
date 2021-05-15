@@ -33,6 +33,15 @@ button {
     max-height: 60vh;
 }
 
+@media only screen and (max-width: 600px) {
+    .data-table {
+        width: 92vw !important;
+        overflow-y: scroll;
+        height:max-content;
+        max-height: 60vh;
+    }
+  }
+
 .fa-download {
     margin:20px;
 }
