@@ -1,4 +1,4 @@
-# BSE-Bhacopy Search and Import 
+# BSE-Bhavcopy Search and Import 
 
 ### BSE publishes a "Bhavcopy" (Equity) ZIP every day at 18:00 IST here: https://www.bseindia.com/markets/MarketInfo/BhavCopy.asp
 
