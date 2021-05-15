@@ -1,5 +1,8 @@
 from pathlib import Path
+from dotenv import load_dotenv
 import os
+
+load_dotenv()  # take environment variables from .env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -14,7 +17,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", "notsosecret")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", 'True')
 
-ALLOWED_HOSTS = ['localhost', '35.154.187.93', 'bse-equity-bhavcopy.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '35.154.187.93']
 
 REDIS_HOST =  os.getenv('REDIS_HOST', '127.0.0.1')
 REDIS_PORT = os.getenv('REDIS_PORT', '6379')
