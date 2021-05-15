@@ -77,7 +77,8 @@
 
        OR 
        
-       Download my nginx configuration for gunicorn server here: https://pastecreate.com/CPhrLu8
+       Download my nginx configuration for gunicorn server here:
+       https://pastecreate.com/CPhrLu8
             
        
        
