@@ -58,6 +58,11 @@
  * Run development server
  
        python manage.py runserver
+       
+ * Steps to run daily import Django command from bash file in background
+       
+       cd jobs/
+       sudo nohup ./download_bhavcopy.sh &
  
  ### Production server deployment steps
 
