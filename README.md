@@ -44,6 +44,13 @@
       source venv/bin/activate
       pip install -r requirements.txt
       
+* Create .env file inside BSE-Bhavcopy/bse_bhavcopy/ directory with following data
+
+      REDIS_HOST=127.0.0.1
+      REDIS_PORT=6379
+      DEBUG=True
+      SECRET_KEY=notsosecret
+      
 * Apply migrations
       
       python manage.py migrate
