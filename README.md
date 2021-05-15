@@ -1,5 +1,5 @@
 # BSE-Bhacopy 
-This application downloads bhavcopy from BSE website.
+### This application downloads bhavcopy from BSE website and makes it searchable 
 ### BSE publishes a "Bhavcopy" (Equity) ZIP every day at 18:00 IST here: https://www.bseindia.com/markets/MarketInfo/BhavCopy.aspx
 
 * Update the system     
