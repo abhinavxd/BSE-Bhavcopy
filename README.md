@@ -52,15 +52,15 @@
  
  ### Production server deployment steps
 
- * Production deployment steps with NGINX
+ * Install nginx webserver https://www.nginx.com/
       
-       Install nginx webserver https://www.nginx.com/
+       sudo apt-get install nginx
        
  * Inside Project root folder run the following command to start gunicorn in daemon mode.       
        
        gunicorn --bind 0.0.0.0:8000 bse_bhavcopy.wsgi --daemon
        
- * Setup NGINX as reverse proxy, add following line in Server block to /etc/nginx/sites-available/default file
+ * Setup NGINX as reverse proxy, add following line in Server block inside file /etc/nginx/sites-available/default 
       
        location / {
 		proxy_pass http://localhost:8000/ 
