@@ -4,6 +4,7 @@
 
 This application runs a Django command daily at 18:00 IST and automatically downloads extracts zip file and imports BhavCopy csv file data into appropriate REDIS data structure, And also makes this data searchable.
 
+
 * Update list of packages from all repositories
 
       sudo apt-get update
