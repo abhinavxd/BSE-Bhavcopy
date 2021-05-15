@@ -47,5 +47,34 @@
  * Run development server
  
        python manage.py runserver
-    
+
+ * Production deployment steps with NGINX
+      
+       Install nginx webserver https://www.nginx.com/
+       
+ * Inside Project root folder run the following command to start gunicorn in daemon mode.       
+       
+       gunicorn --bind 0.0.0.0:8000 bse_bhavcopy.wsgi --daemon
+       
+ * Setup NGINX as reverse proxy, add following line in Server block to /etc/nginx/sites-available/default file
+      
+       location / {
+		proxy_pass http://localhost:8000/ 
+       }
+       
+ * Verify nginx configuration and reload nginx
+
+       sudo nginx -t
+       sudo nginx -s reload
+ 
+ * If you are still having issues with NGINX read the following guide.
+      
+       https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-18-04
+
+       OR 
+       
+       Download my nginx configuration for gunicorn server here: https://pastecreate.com/CPhrLu8
+            
+       
+       
  
