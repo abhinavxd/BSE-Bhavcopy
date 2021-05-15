@@ -6,6 +6,7 @@ sleep 1s
 lastRunDate="13-05-2021"
 
 SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PYTHON_EXEC="${SCRIPTDIR}/../venv/bin/python"
 APPDIR=${SCRIPTDIR}/..
 
 
@@ -28,10 +29,10 @@ do
 
     # Run everyday at 18:00 IST
     if [[ ${lastRunDate} != ${todaysDate} ]] && ((10#${H} >= 18 )); then
-        # Sleep for a 5 minutes, just to make sure that this job doesn't miss the uploaded file.
-        sleep 5m
+        # Sleep for a 3 minutes, just to make sure that this job doesn't miss the uploaded file.
+        sleep 3m
         printf "Job starting. \n" >> ${LOG_FILE} 2>&1
-        python ${APPDIR}/manage.py importBhavCopy ${D}-${M}-${Y}
+        ${PYTHON_EXEC} ${APPDIR}/manage.py importBhavCopy ${D}-${M}-${Y}
         lastRunDate=${todaysDate}
         printf "\n\nChanged lastRunDate to ${D}-${M}-${Y}\n" >> ${LOG_FILE} 2>&1
     fi
