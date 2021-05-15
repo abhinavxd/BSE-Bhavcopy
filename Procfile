@@ -1,1 +1,0 @@
-web: gunicorn bse_bhavcopy.wsgi
