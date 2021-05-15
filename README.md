@@ -1,6 +1,8 @@
 # BSE-Bhacopy 
-### This application downloads bhavcopy from BSE website and makes it searchable 
-### BSE publishes a "Bhavcopy" (Equity) ZIP every day at 18:00 IST here: https://www.bseindia.com/markets/MarketInfo/BhavCopy.aspx
+### This application downloads bhavcopy from BSE website and makes it searchable
+### BSE publishes a "Bhavcopy" (Equity) ZIP every day at 18:00 IST here: https://www.bseindia.com/markets/MarketInfo/BhavCopy.asp
+
+### This app runs a Django command daily at 18:00 to automatically download extract and import BhavCopy data for that day into REDIS
 
 * Update list of packages from all repositories
 
