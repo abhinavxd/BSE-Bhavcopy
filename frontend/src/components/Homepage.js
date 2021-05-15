@@ -99,7 +99,7 @@ const Homepage = () => {
                 {csvData &&
                     <div className='data-table'>
                         <DataTable
-                            title="BSE Bhavcopy (Equity)"
+                            title=""
                             columns={columns}
                             data={csvData}
                         />
