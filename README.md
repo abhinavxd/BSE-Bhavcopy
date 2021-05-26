@@ -95,15 +95,5 @@ Plus you can download the results as CSV.
        sudo nginx -t
        sudo nginx -s reload
  
- * If you are still having issues with NGINX read the following guide.
-      
-       https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-18-04
-
-       OR 
-       
-       Download my nginx configuration for gunicorn server here:
-       https://pastecreate.com/CPhrLu8
-            
-       
        
  
