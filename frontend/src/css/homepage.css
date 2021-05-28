@@ -5,8 +5,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url(https://project-bucket-be.s3.ap-south-1.amazonaws.com/cool-background_1.png);
-    background-size: cover;
+    background: #076585;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #fff, #076585);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #fff, #076585); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 label {
