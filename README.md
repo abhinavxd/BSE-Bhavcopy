@@ -1,8 +1,18 @@
-# BSE-Bhacopy 
-### This application downloads bhavcopy from BSE website and makes it searchable
+# BSE-Bhavcopy Search and Import 
+
 ### BSE publishes a "Bhavcopy" (Equity) ZIP every day at 18:00 IST here: https://www.bseindia.com/markets/MarketInfo/BhavCopy.asp
 
-### This app runs a Django command daily at 18:00 to automatically download extract and import BhavCopy data into appropriate REDIS data structure.
+This application runs a Django command daily at 18:00 IST and automatically downloads, extracts zip file and imports BhavCopy csv data into appropriate REDIS data structure, And also makes this data searchable.
+
+Plus you can download the results as CSV. 
+
+* API Endpoints
+	
+      https://bsebhavcopy.abhinavr.me/api/search-prefix
+
+      https://bsebhavcopy.abhinavr.me/api/get-data-by-name
+      
+### Deployment instructions
 
 * Update list of packages from all repositories
 
@@ -26,19 +36,14 @@
       sudo apt-get install python3-venv
       python3 -m venv venv
       
-      **MAKE SURE YOUR environment name is 'venv'**   
+* MAKE SURE YOUR virtual environment name is 'venv' 
     
 * Install node from https://nodejs.org/en/ and build frontend 
 
       cd frontend
       npm install
-      
-      For production:
       npm run build
-      
-      For dev:
-      npm run dev
-      
+
 * Activate the virtual environment and install the requirements
      
       source venv/bin/activate
@@ -58,6 +63,16 @@
  * Run development server
  
        python manage.py runserver
+       
+### Steps to run daily import Django command from bash file in background
+       
+       cd jobs/
+       sudo nohup ./download_bhavcopy.sh &
+       
+       Press CTRL + C to close (now the bash file is running in background)
+       
+       To check if it's running run the following:
+       ps -fe | grep -i bhavcopy
  
  ### Production server deployment steps
 
@@ -80,15 +95,5 @@
        sudo nginx -t
        sudo nginx -s reload
  
- * If you are still having issues with NGINX read the following guide.
-      
-       https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-18-04
-
-       OR 
-       
-       Download my nginx configuration for gunicorn server here:
-       https://pastecreate.com/CPhrLu8
-            
-       
        
  
