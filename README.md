@@ -2,7 +2,7 @@
 
 ### BSE publishes a "Bhavcopy" (Equity) ZIP every day at 18:00 IST here: https://www.bseindia.com/markets/MarketInfo/BhavCopy.asp
 
-This application runs a Django command daily at 18:00 IST and automatically downloads, extracts zip file and imports BhavCopy csv data into appropriate REDIS data structure, And also makes this data searchable.
+This application runs a Django command daily at 18:00 IST and automatically downloads, extracts zip file and imports BhavCopy csv data into memory and then into appropriate REDIS data structure, And also makes this data searchable.
 
 Plus you can download the results as CSV. 
 
