@@ -82,7 +82,7 @@ const Homepage = () => {
                     Welcome to <img src="https://www.bseindia.com/include/images/bselogo.png" /> (Equity) Bhavcopy Search
                 </h2>
                 <div>
-                    <form id='search-form'>
+                    <form id='search-form' onSubmit={(e) => e.preventDefault()}>
                         <Autocomplete
                         id="search-input"
                         onChange={(event, value) => handleSearch(event, value)} 
