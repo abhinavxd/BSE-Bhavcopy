@@ -84,11 +84,15 @@ Plus you can download the results as CSV.
        
        gunicorn --bind 0.0.0.0:8000 bse_bhavcopy.wsgi --daemon
        
- * Setup NGINX as reverse proxy, add following line in Server block inside file /etc/nginx/sites-available/default 
+ * Setup NGINX as reverse proxy to serve Django page & static files, in /etc/nginx/sites-available/default 
       
-       location / {
-		proxy_pass http://localhost:8000/ 
-       }
+         location / {
+                proxy_pass http://localhost:8000/;
+                location /static {
+                        autoindex on;
+                        alias /home/ubuntu/bhavcopy/frontend/static;
+                }
+        }
        
  * Verify nginx configuration and reload nginx
 
