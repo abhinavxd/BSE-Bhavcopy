@@ -68,11 +68,6 @@ Plus you can download the results as CSV.
        
        cd jobs/
        sudo nohup ./download_bhavcopy.sh &
-       
-       Press CTRL + C to close (now the bash file is running in background)
-       
-       To check if it's running run the following:
-       ps -fe | grep -i bhavcopy
  
  ### Production server deployment steps
 
