@@ -27,9 +27,9 @@ class Command(BaseCommand):
             ZipFile: Zipfile in memory downloaded from BSE
         """
         todays_date = "".join(full_todays_date.split('-'))
-        logger.info(f'todays_date {todays_date}')
+        logger.info(f'Todays_date {todays_date}')
         url = f'https://www.bseindia.com/download/BhavCopy/Equity/EQ{todays_date}_CSV.ZIP'
-        logger.info(f'URL generated {url}')
+        logger.info(f'URL generated for bhavcopy {url}')
         # Set user-agent to prevent 403 error
         req = urllib.request.Request(
             url, headers={'User-Agent': "Magic Browser"})
@@ -65,7 +65,6 @@ class Command(BaseCommand):
                     possible_prefixes = [name[:x]
                                              for x in range(2, len(name))]
 
-                    logger.info(possible_prefixes)
                     # Create a set with prefix as key and add the complete string as member of the set
                     for prefix in possible_prefixes:
                         pipe.sadd(prefix, name)
