@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import { render } from "react-dom";
 import axios from "axios";
 import "../css/homepage.css";
-import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 import { CSVLink } from "react-csv";
-import DataTable from 'react-data-table-component';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
+const DataTable = React.lazy(() => import('react-data-table-component'));
 
 
 const Homepage = () => {
@@ -54,13 +53,13 @@ const Homepage = () => {
 
     const handleInputChange = async (e) => {
         const searchTerm = e.target.value;
-        const result = await axios.post('api/search-prefix',{
+        const result = await axios.post('api/search-prefix', {
             search_term: searchTerm
         });
         setSearchedData(result.data)
     };
 
-    const handleSearch = async (e, value=undefined) => {
+    const handleSearch = async (e, value = undefined) => {
         e.preventDefault();
         try {
             const result = await axios.post("api/get-data-by-name", {
@@ -84,12 +83,12 @@ const Homepage = () => {
                 <div>
                     <form id='search-form' onSubmit={(e) => e.preventDefault()}>
                         <Autocomplete
-                        id="search-input"
-                        onChange={(event, value) => handleSearch(event, value)} 
-                        options={searchedData}
-                        getOptionLabel={(option) => option.title}
-                        style={{ width: 400 }}
-                        renderInput={(params) => <TextField {...params} label="Search by name" variant="outlined" onChange={handleInputChange} />}
+                            id="search-input"
+                            onChange={(event, value) => handleSearch(event, value)}
+                            options={searchedData}
+                            getOptionLabel={(option) => option.title}
+                            style={{ width: 400 }}
+                            renderInput={(params) => <TextField {...params} label="Search by name" variant="outlined" onChange={handleInputChange} />}
                         />
                     </form>
                 </div>
@@ -98,11 +97,13 @@ const Homepage = () => {
                 </div>
                 {csvData &&
                     <div className='data-table'>
-                        <DataTable
-                            title=''
-                            columns={columns}
-                            data={csvData}
-                        />
+                        <Suspense fallback={<div>Loading...</div>}>
+                            <DataTable
+                                title=''
+                                columns={columns}
+                                data={csvData}
+                            />
+                        </Suspense>
                     </div>
                 }
             </div>
